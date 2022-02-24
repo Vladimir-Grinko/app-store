@@ -1,25 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { rateStar } from "../../styles/images";
 // import { useSelector } from "react-redux";
 // import { getCurrentUserData } from "../../store/users";
 
-const ProductCard = ({ product }) => {
-    const history = useHistory();
+const ProductCardBasket = ({ product, onHandleDelete }) => {
     // const currentUser = true;
     // useSelector(getCurrentUserData());
 
-    const goToProductPage = () => {
-        history.push("/product/" + product._id);
-    };
-
-    const handlePushBasket = () => {
-        console.log(product);
-    };
     return (
-        <div className="card mb-3 align-self-end">
+        <div className="card mb-3 align-self-start">
             <div className="row g-0">
                 <div className="col-md-3 align-items-center position-relative">
                     <img
@@ -36,7 +27,6 @@ const ProductCard = ({ product }) => {
                             <h5 className="card-title">{product.name}</h5>
                         </Link>
 
-                        
                         <div>
                             <p className="p-2">
                                 <img
@@ -58,17 +48,10 @@ const ProductCard = ({ product }) => {
                     </div>
                     <button
                         type="button"
-                        className="btn btn-outline-secondary m-3 rounded"
-                        onClick={goToProductPage}
+                        className="btn btn-outline-danger m-3 rounded"
+                        onClick={() => onHandleDelete(product._id)}
                     >
-                        Подробнее
-                    </button>
-                    <button
-                        type="button"
-                        className="btn btn-outline-success m-3 rounded"
-                        onClick={handlePushBasket}
-                    >
-                        В корзину
+                        Удалить
                     </button>
                 </div>
             </div>
@@ -76,8 +59,9 @@ const ProductCard = ({ product }) => {
     );
 };
 
-ProductCard.propTypes = {
-    product: PropTypes.object
+ProductCardBasket.propTypes = {
+    product: PropTypes.object,
+    onHandleDelete: PropTypes.func
 };
 
-export default ProductCard;
+export default ProductCardBasket;

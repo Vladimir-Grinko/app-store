@@ -22,15 +22,15 @@ const Login = () => {
                         <>
                             <h3 className="mb-4">Регистрация</h3>
                             <RegisterForm />
-                            <p>
-                                Already have account?{" "}
+                            <p className="m-2">
+                                Зарегистрированы?{" "}
                                 <a
                                     role="button"
                                     onClick={toggleFormType}
                                     className="text-blue"
                                 >
                                     {" "}
-                                    Sign in
+                                    Войти
                                 </a>
                             </p>
                         </>
@@ -38,15 +38,15 @@ const Login = () => {
                         <>
                             <h3 className="mb-4">Авторизация</h3>
                             <LoginForm />
-                            <p>
-                                Dont have account?{" "}
+                            <p className="m-2">
+                            Не зарегистрированы?{" "}
                                 <a
                                     role="button"
                                     onClick={toggleFormType}
                                     className="text-blue"
                                 >
                                     {" "}
-                                    Sign Up
+                                    Регистрация
                                 </a>
                             </p>
                         </>

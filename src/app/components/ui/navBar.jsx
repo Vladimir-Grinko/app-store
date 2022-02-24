@@ -8,6 +8,10 @@ const NavBar = () => {
     const goToLogin = () => {
         history.push("/login");
     };
+    const goToBasket = () => {
+        history.push("/basket");
+    };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark m-1 rounded">
             <div className="container-fluid">
@@ -34,7 +38,7 @@ const NavBar = () => {
                                 className="btn btn-primary bg-dark position-relative"
                                 onClick={goToLogin}
                             >
-                                login
+                                Вход
                             </button>
                         </li>
 
@@ -42,8 +46,9 @@ const NavBar = () => {
                             <button
                                 type="button"
                                 className="btn btn-primary bg-dark position-relative"
+                                onClick={goToBasket}
                             >
-                                Basket
+                                Корзина
                                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light">
                                     99+
                                 </span>

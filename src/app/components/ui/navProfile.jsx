@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { imageProfile } from "../../styles/images";
 
 const NavProfile = () => {
     const [isOpen, setOpen] = useState(false);
@@ -14,7 +15,7 @@ const NavProfile = () => {
             <div className="btn dropdown-toggle d-flex align-items-center">
                 <div className="me-2">name</div>
                 <img
-                    src=""
+                    src={imageProfile}
                     alt=""
                     height="40"
                     className="img-responsive rounded-circle"

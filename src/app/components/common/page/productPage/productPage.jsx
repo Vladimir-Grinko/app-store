@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { goods } from "../../../../mockData/goods";
-import { rateStar } from "../../../../styles/rateImg";
+import { rateStar } from "../../../../styles/images";
 // import { useSelector } from "react-redux";
 
 const ProductPage = ({ id }) => {
@@ -24,7 +24,6 @@ const ProductPage = ({ id }) => {
         if (isAdmin) {
             history.push("/admin");
         } else {
-            
             history.push("/");
         }
     };
@@ -52,12 +51,6 @@ const ProductPage = ({ id }) => {
                         </div>
                         <div className="col-md-6">
                             <div className="card-body">
-                                {currentUser && (
-                                    <button
-                                        className="position-absolute top-0 end-0 btn btn-close btn-sm"
-                                        onClick={handleClick}
-                                    ></button>
-                                )}
                                 <h3 className="card-title">{prodId.name}</h3>
                                 <p className="card-text">
                                     {prodId.description}
@@ -82,13 +75,23 @@ const ProductPage = ({ id }) => {
                                     </p>
                                 </h2>
                             </div>
-                            <button
-                                type="button"
-                                className="btn btn-outline-success m-3 rounded align-self-end"
-                                // onClick={handlePushBasket}
-                            >
-                                В корзину
-                            </button>
+                            {!currentUser && (
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-success m-3 rounded align-self-end"
+                                    // onClick={handlePushBasket}
+                                >
+                                    В корзину
+                                </button>
+                            )}
+                            {currentUser && (
+                                <button
+                                    className="btn btn-outline-info m-3 rounded align-self-end"
+                                    onClick={handleClick}
+                                >
+                                    Изменить
+                                </button>
+                            )}
                             <div className="card-text text-center justify-content-end">
                                 Наличие в пунктах выдачи: {prodId.amount}
                             </div>
